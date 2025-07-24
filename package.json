@@ -1,0 +1,25 @@
+{
+  "name": "react-dev",
+  "version": "1.0.0",
+  "description": "Namaste React Dev",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/munjaljatin/React-Dev.git"
+  },
+  "author": "Jatin Munjal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/munjaljatin/React-Dev/issues"
+  },
+  "homepage": "https://github.com/munjaljatin/React-Dev#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
