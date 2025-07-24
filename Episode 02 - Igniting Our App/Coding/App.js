@@ -1,3 +1,25 @@
+/*
+parcel is reponsible for
+- Dev Builds
+- local server
+- HMR => Hot Module Replacement
+- File watcher algorithms => written in c++
+- Caching => Faster Builds
+- Image Optimization
+- Minificataion
+- Bundle
+- Compress
+- Consistent Hashing
+- Code Splitting
+- Differential Bundling => To Support Older Browsers
+- Diagnostics
+- Better Error Handling
+- Support HTTPs in Dev Mode
+- Tree Shaking - Removes unused code
+- Different Dev and Production Bundles
+
+*/
+
 const root = document.getElementById("root");
 
 console.log(root);
