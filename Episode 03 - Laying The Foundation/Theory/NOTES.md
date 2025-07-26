@@ -38,6 +38,10 @@ function greeting(user) {
 }
 ```
 
+### What is React `Functional Component`?
+
+A React `Functional Component` is a function that return some piece of JSX code.
+
 ## Q: Role of `type` attribute in script tag? What options can I use there?
 
 A: The `type` attribute specifies the type of the script. The type attribute identifies the content between the `<script>` and `</script>` tags. It has a Default value which is “text/javascript”.
