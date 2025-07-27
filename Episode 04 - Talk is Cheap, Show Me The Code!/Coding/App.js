@@ -18,6 +18,150 @@ import "./styles.css";
  *    Copyright
  */
 
+/**Data */
+const resList = {
+  type: "restaurant",
+  data: {
+    type: "F",
+    id: "121603",
+    name: "Kannur Food Point",
+    uuid: "51983905-e698-4e31-b0d7-e376eca56320",
+    city: "1",
+    area: "Tavarekere",
+    totalRatingsString: "10000+ ratings",
+    cloudinaryImageId: "bmwn4n4bn6n1tcpc8x2h",
+    cuisines: ["Kerala", "Chinese"],
+    tags: [],
+    costForTwo: 30000,
+    costForTwoString: "₹300 FOR TWO",
+    deliveryTime: 24,
+    minDeliveryTime: 24,
+    maxDeliveryTime: 24,
+    slaString: "24 MINS",
+    lastMileTravel: 3,
+    slugs: {
+      restaurant: "kannur-food-point-btm",
+      city: "bangalore",
+    },
+    cityState: "1",
+    address:
+      "6/21,9TH CROSS ,1ST MAIN, VENKATESHWARA LAYOUT,SG PALYA, BENGALURU, - 560093",
+    locality: "SG Palya",
+    parentId: 20974,
+    unserviceable: false,
+    veg: false,
+    select: false,
+    favorite: false,
+    tradeCampaignHeaders: [],
+    aggregatedDiscountInfo: {
+      header: "50% off",
+      shortDescriptionList: [
+        {
+          meta: "50% off on all orders",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      descriptionList: [
+        {
+          meta: "50% off on all orders",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      subHeader: "",
+      headerType: 0,
+      superFreedel: "",
+    },
+    aggregatedDiscountInfoV2: {
+      header: "50% OFF",
+      shortDescriptionList: [
+        {
+          meta: "",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      descriptionList: [
+        {
+          meta: "50% off on all orders",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      subHeader: "",
+      headerType: 0,
+      superFreedel: "",
+    },
+    ribbon: [
+      {
+        type: "PROMOTED",
+      },
+    ],
+    chain: [],
+    feeDetails: {
+      fees: [
+        {
+          name: "distance",
+          fee: 3700,
+          message: "",
+        },
+        {
+          name: "time",
+          fee: 0,
+          message: "",
+        },
+        {
+          name: "special",
+          fee: 0,
+          message: "",
+        },
+      ],
+      totalFees: 3700,
+      message: "",
+      title: "Delivery Charge",
+      amount: "3700",
+      icon: "",
+    },
+    availability: {
+      opened: true,
+      nextOpenMessage: "",
+      nextCloseMessage: "",
+    },
+    longDistanceEnabled: 0,
+    rainMode: "NONE",
+    thirdPartyAddress: false,
+    thirdPartyVendor: "",
+    adTrackingID: "cid=6274849~p=1~eid=00000187-2c1c-96f0-0062-eea200b00103",
+    badges: {
+      imageBased: [],
+      textBased: [],
+      textExtendedBadges: [],
+    },
+    lastMileTravelString: "3 kms",
+    hasSurge: false,
+    sla: {
+      restaurantId: "121603",
+      deliveryTime: 24,
+      minDeliveryTime: 24,
+      maxDeliveryTime: 24,
+      lastMileTravel: 3,
+      lastMileDistance: 0,
+      serviceability: "SERVICEABLE",
+      rainMode: "NONE",
+      longDistance: "NOT_LONG_DISTANCE",
+      preferentialService: false,
+      iconType: "EMPTY",
+    },
+    promoted: true,
+    avgRating: "3.9",
+    totalRatings: 10000,
+    new: false,
+  },
+  subtype: "basic",
+};
+/**Data */
+
 // Header Component
 const Header = () => {
   return (
@@ -55,7 +199,7 @@ const Body = () => {
     <div className="main-body-container">
       <div className="body-container">
         <img
-          src="https://www.ubereats.com/_static/96444e8b6107fad5.webp"
+          src="https://images.unsplash.com/photo-1543992321-cefacfc2322e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHJlc3RhdXJhbnQlMjBmb29kfGVufDB8fDB8fHww"
           alt=""
         />
         <div className="centered">
@@ -68,11 +212,62 @@ const Body = () => {
         </div>
       </div>
       <div className="cards">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card resObj={resList} />
+        <Card resName="Burger King" cusine="Italian" />
+        {/* <Card />
+        <Card /> */}
       </div>
+    </div>
+  );
+};
+
+// card
+const Card = (props) => {
+  console.log(props);
+  console.log(resList);
+
+  const { resData } = props;
+  return (
+    <div className="card-container">
+      <div className="image-container">
+        <img
+          src="https://lh3.googleusercontent.com/-hYLLrTFKk2Xe8Gd5oG6YZjUBE-rZpSX6NeGAc4Okiq-xil1UeU54gwj7lFxIgV7I_Hl7FtuDH1T6MibDEjzKIDurey_GdSsRR3NJ9o=w1200-rw"
+          width="100%"
+          alt=""
+        />
+      </div>
+      <div className="text-container">
+        <h3>
+          North Indian . Chinese <span>1000 for two</span>
+        </h3>
+        <p>Name</p>
+        <div className="pre-book">
+          <div className="percent">
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png"
+              alt=""
+            />
+            <div>Flat 20% off on pre-booking</div>
+          </div>
+          <div className="offers">+3 more</div>
+        </div>
+        <div className="offer">Up to 10% off with bank offers</div>
+      </div>
+    </div>
+  );
+};
+
+const ImageSection = () => {
+  return (
+    <div
+      className="image-section"
+      style={{ height: "100%", width: "100%", margin: "100px 0" }}
+    >
+      <img
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png"
+        style={{ height: "100%", width: "100%" }}
+        alt="image-section"
+      />
     </div>
   );
 };
@@ -161,27 +356,12 @@ const Footer = () => {
     </div>
   );
 };
-
-// card
-const Card = () => {
-  return (
-    <div className="card-container">
-      <div className="image-container">
-        <img
-          src="https://lh3.googleusercontent.com/-hYLLrTFKk2Xe8Gd5oG6YZjUBE-rZpSX6NeGAc4Okiq-xil1UeU54gwj7lFxIgV7I_Hl7FtuDH1T6MibDEjzKIDurey_GdSsRR3NJ9o=w1200-rw"
-          width="100%"
-          alt=""
-        />
-      </div>
-      <div className="text-container"></div>
-    </div>
-  );
-};
 const App = () => {
   return (
     <>
       <Header />
       <Body />
+      <ImageSection />
       <Footer />
     </>
   );

@@ -161,3 +161,9 @@ A: DOM stands for `Document Object Model`, which represents your application UI 
 | Creates a new DOM if the element updates.                        | Update the JSX if the element update                     |
 | It allows us to directly target any specific node (HTML element) | It can produce about 200,000 Virtual DOM Nodes / Second. |
 | It represents the UI of your application                         | It is only a virtual representation of the DOM           |
+
+// \* What is Config-driven-UI -> A "config-driven UI" is a user interface that is built and configured using a declarative configuration file or data structure, rather than being hardcoded.
+
+// \* Every company now-a-days follows these approach, because our Appications need to be Dynamic These Days
+
+// \* Note: A Good Senior Frontend engineer is - who is a good UI Layer Engineer and a good Data Layer Engineer

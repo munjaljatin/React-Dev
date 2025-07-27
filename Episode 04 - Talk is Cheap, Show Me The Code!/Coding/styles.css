@@ -73,7 +73,7 @@ button {
 .bd-h1 {
   font-size: 52px;
   font-weight: 700;
-  color: black;
+  color: #fff;
   margin-bottom: 32px;
 }
 
@@ -87,25 +87,67 @@ button {
   padding: 0 30px;
 }
 
+/* **************************** Card Container ********************************** */
 .card-container {
   width: 328px;
   height: 400px;
-  /* border: 1px solid black; */
   border-radius: 25px;
-  /* display: flex; */
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 50px;
+  gap: 25px;
 }
 
 .image-container > img {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
+
+.text-container {
+  padding: 5px;
+  font-family: cursive !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* background-color: red; */
+}
+
+.pre-book {
+  background: rgb(27, 166, 114);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-size: 14px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.percent {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.percent > img {
+  width: 20px;
+}
+.percent > div {
+  font-weight: 700;
+  color: white;
+}
+
+.offers {
+  font-size: 12px;
+  color: white;
+  font-weight: 700;
+}
+/* ***************************** Card Container ************************************** */
 
 /* Footer */
 .footer-container {
