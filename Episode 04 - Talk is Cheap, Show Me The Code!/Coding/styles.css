@@ -87,13 +87,22 @@ button {
   padding: 0 30px;
 }
 
+.main-body-container {
+  width: 100%;
+}
+
 /* **************************** Card Container ********************************** */
 .card-container {
-  width: 328px;
-  height: 400px;
+  /* width: 300px; */
   border-radius: 25px;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  padding: 11px;
+}
+
+.card-container:hover {
+  border: 1px solid black;
+  transition: 1s linear;
 }
 
 .cards {

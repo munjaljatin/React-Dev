@@ -19,7 +19,7 @@ import "./styles.css";
  */
 
 // src={
-//   'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/' +
+//   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
 //   resData.data.cloudinaryImageId
 // }
 
@@ -113,7 +113,7 @@ const resList = [
       locality: "Sector 9",
       areaName: "Sector 9",
       costForTwo: "₹500 for two",
-      cuisines: ["Burgers", "Fast Food", "Rolls & Wraps"],
+      cuisines: ["Burgers", "Fast Food"],
       avgRating: 4.4,
       parentId: "547",
       avgRatingString: "4.4",
@@ -694,10 +694,9 @@ const resList = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-
 /********* Swiggy API ********/
 
-// Header Component
+// Header Component -- Started
 const Header = () => {
   return (
     <div className="header">
@@ -726,9 +725,9 @@ const Header = () => {
     </div>
   );
 };
+// Header Component -- Ended
 
-// Body Component
-const videoSource = "";
+// Body Component -- Started
 const Body = () => {
   return (
     <div className="main-body-container">
@@ -748,33 +747,39 @@ const Body = () => {
       </div>
       <div className="cards">
         <Card resData={resList[0]} />
-        {/* <Card />
-        <Card />
-        <Card /> */}
+        <Card resData={resList[1]} />
+        <Card resData={resList[2]} />
+        <Card resData={resList[3]} />
+        <Card resData={resList[4]} />
       </div>
     </div>
   );
 };
+// Body Component --Ended
 
-// card
+// Card Component -- Started
 const Card = (props) => {
+  const { id, name, cloudinaryImageId, locality, costForTwo } = props;
+  const { resData } = props;
   return (
     <div className="card-container">
       <div className="image-container">
         <img
           src={
-            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/" +
-            props.data.cloudinaryImageId
+            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+            resData.info.cloudinaryImageId
           }
+          height="182px"
           width="100%"
           alt=""
         />
       </div>
       <div className="text-container">
         <h3>
-          North Indian . Chinese <span>1000 for two</span>
+          {resData.info.cuisines.join(", ")}
+          <p>{resData.info.costForTwo}</p>
         </h3>
-        <p>Name</p>
+        <p>{resData.info.name}</p>
         <div className="pre-book">
           <div className="percent">
             <img
@@ -790,7 +795,9 @@ const Card = (props) => {
     </div>
   );
 };
+// Card Component -- Ended
 
+// Image Component -- Started
 const ImageSection = () => {
   return (
     <div
@@ -805,8 +812,9 @@ const ImageSection = () => {
     </div>
   );
 };
+// Image Component -- Ended
 
-// Footer
+// Footer Component -- Started
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -890,6 +898,8 @@ const Footer = () => {
     </div>
   );
 };
+// Footer Component -- Ended
+
 const App = () => {
   return (
     <>
