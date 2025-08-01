@@ -1,3 +1,6 @@
+import Card from "./Card";
+import resList from "../utils/mockData";
+
 // Body Component -- Started
 const Body = () => {
   return (
@@ -16,13 +19,13 @@ const Body = () => {
           />
         </div>
       </div>
-      {/* <div className="cards">
-          <Card resData={resList[0]} />
-          <Card resData={resList[1]} />
-          <Card resData={resList[2]} />
-          <Card resData={resList[3]} />
-          <Card resData={resList[4]} />
-        </div> */}
+      <div className="cards">
+        <Card resData={resList[0]} />
+        <Card resData={resList[1]} />
+        <Card resData={resList[2]} />
+        <Card resData={resList[3]} />
+        <Card resData={resList[4]} />
+      </div>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { IMAGE_SECTION } from "../utils/constant";
+
 // Image Component -- Started
 const ImageSection = () => {
   return (
@@ -6,7 +8,7 @@ const ImageSection = () => {
       style={{ height: "100%", width: "100%", margin: "100px 0" }}
     >
       <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png"
+        src={IMAGE_SECTION}
         style={{ height: "100%", width: "100%" }}
         alt="image-section"
       />
