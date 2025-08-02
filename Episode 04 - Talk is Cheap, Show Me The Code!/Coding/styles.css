@@ -37,6 +37,17 @@
   border: none;
 }
 
+.new {
+  width: 149px;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid black;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 10px;
+}
+
 .links .get-the-app {
   width: 149px;
   height: 54px;
@@ -135,6 +146,7 @@ button {
   font-size: 14px;
   height: 36px;
   border-radius: 8px;
+  gap: 10px;
 }
 
 .percent {

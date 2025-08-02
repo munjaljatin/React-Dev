@@ -24,7 +24,7 @@ import "./styles.css";
 // }
 
 /********* Swiggy API ********/
-const resList = [
+export const resList = [
   {
     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
     info: {
@@ -759,15 +759,17 @@ const Body = () => {
 
 // Card Component -- Started
 const Card = (props) => {
-  const { id, name, cloudinaryImageId, locality, costForTwo } = props;
   const { resData } = props;
+  const { id, name, cloudinaryImageId, locality, costForTwo, cuisines } =
+    resData?.info;
+
   return (
     <div className="card-container">
       <div className="image-container">
         <img
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            resData.info.cloudinaryImageId
+            cloudinaryImageId
           }
           height="182px"
           width="100%"
@@ -776,10 +778,10 @@ const Card = (props) => {
       </div>
       <div className="text-container">
         <h3>
-          {resData.info.cuisines.join(", ")}
-          <p>{resData.info.costForTwo}</p>
+          {cuisines.join(", ")}
+          <p>{costForTwo}</p>
         </h3>
-        <p>{resData.info.name}</p>
+        <p>{name}</p>
         <div className="pre-book">
           <div className="percent">
             <img
