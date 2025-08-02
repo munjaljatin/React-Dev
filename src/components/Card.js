@@ -29,7 +29,7 @@ const Card = (props) => {
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png"
               alt=""
             />
-            <div>Flat 20% off on pre-booking</div>
+            <div>20% off on pre-booking</div>
           </div>
           <div className="offers">+3 more</div>
         </div>

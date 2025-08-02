@@ -14,7 +14,7 @@ const App = () => {
       <Body />
       <ImageSection />
       <Footer />
-      <Example />
+      {/* <Example /> */}
     </React.Fragment>
   );
 };
