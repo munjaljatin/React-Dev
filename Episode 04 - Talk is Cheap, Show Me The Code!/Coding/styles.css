@@ -11,6 +11,8 @@
   background-color: aqua;
   align-items: center;
   background-image: linear-gradient(to right, #f8fafc, #f8fafc);
+  position: sticky;
+  top: 0;
 }
 
 .links {

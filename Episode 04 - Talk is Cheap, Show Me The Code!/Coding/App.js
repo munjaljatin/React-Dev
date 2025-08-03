@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles.css";
+// import { CDN_LINK } from "../../src/utils/constant";
 // import "./Images/intro.mp4";
+import resObject from "./data";
 
 /**
  * Header
@@ -745,12 +747,11 @@ const Body = () => {
           />
         </div>
       </div>
-      <div className="cards">
-        <Card resData={resList[0]} />
-        <Card resData={resList[1]} />
-        <Card resData={resList[2]} />
-        <Card resData={resList[3]} />
-        <Card resData={resList[4]} />
+      <div className="Cards">
+        {/* <Card /> */}
+        {resObject.map((restaurant) => (
+          <Card resData={restaurant} key={restaurant.info.id} />
+        ))}
       </div>
     </div>
   );
@@ -760,44 +761,32 @@ const Body = () => {
 // Card Component -- Started
 const Card = (props) => {
   const { resData } = props;
-  const { id, name, cloudinaryImageId, locality, costForTwo, cuisines } =
-    resData?.info;
-
+  console.log(props);
   return (
     <div className="card-container">
-      <div className="image-container">
-        <img
-          src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-          }
-          height="182px"
-          width="100%"
-          alt=""
-        />
-      </div>
+      <img
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          resData.info.cloudinaryImageId
+        }
+        alt="logo"
+      />
       <div className="text-container">
-        <h3>
-          {cuisines.join(", ")}
-          <p>{costForTwo}</p>
-        </h3>
-        <p>{name}</p>
-        <div className="pre-book">
-          <div className="percent">
-            <img
-              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png"
-              alt=""
-            />
-            <div>Flat 20% off on pre-booking</div>
-          </div>
-          <div className="offers">+3 more</div>
-        </div>
-        <div className="offer">Up to 10% off with bank offers</div>
+        {/* <h3>{id}</h3> */}
+        <p>{resData.info.name}</p>
+        <p className="cuisine">{resData.info.cuisines.join(", ")}</p>
+        <p>{resData.info.locality}</p>
+        <p>
+          <b>{resData.info.costForTwo}</b>
+        </p>
+        <p>{resData.info.avgRating} ⭐ Rating</p>
+      </div>
+      <div className="offer">
+        <a href="#">Grab Offer UpTo 50%</a>
       </div>
     </div>
   );
 };
-// Card Component -- Ended
 
 // Image Component -- Started
 const ImageSection = () => {
