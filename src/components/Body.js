@@ -1,8 +1,77 @@
 import Card from "./Card";
+import { useState } from "react";
 import resList from "../utils/mockData";
+import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
 
 // Body Component -- Started
 const Body = () => {
+  // creating a State variable that maintains the state of out component
+  const [restaurantList, setRestaurantList] = useState(resObject);
+  // const [restaurantList, setRestaurantList] = useState([
+  //   {
+  //     info: {
+  //       id: "8614",
+  //       name: "Burger King",
+  //       cloudinaryImageId:
+  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/18/ee1fdf16-ea5f-4a44-9e58-7b3a9dee2618_8614.jpg",
+  //       locality: "Connaught Place",
+  //       costForTwo: "₹350 for two",
+  //       cuisines: ["Burgers", "American"],
+  //       avgRating: 4.4,
+  //       avgRatingString: "4.4",
+  //       deliveryTime: 26,
+  //       rating: "4.2",
+  //     },
+  //   },
+  //   {
+  //     info: {
+  //       id: "16865",
+  //       name: "Pizza Hut",
+  //       cloudinaryImageId:
+  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/ad775229-6f24-4858-8234-b974d501c013_16865.JPG",
+  //       locality: "Connaught Place",
+  //       costForTwo: "₹350 for two",
+  //       cuisines: ["Pizzas"],
+  //       avgRating: 4.3,
+  //       avgRatingString: "4.4",
+  //       deliveryTime: 26,
+  //       rating: "4.2",
+  //     },
+  //   },
+  // ]);
+  // Normal JS Variable
+  let restaurantListJS = [
+    {
+      info: {
+        id: "8614",
+        name: "Burger King",
+        cloudinaryImageId:
+          "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/18/ee1fdf16-ea5f-4a44-9e58-7b3a9dee2618_8614.jpg",
+        locality: "Connaught Place",
+        costForTwo: "₹350 for two",
+        cuisines: ["Burgers", "American"],
+        avgRating: 4.4,
+        avgRatingString: "4.4",
+        deliveryTime: 26,
+        rating: "4.2",
+      },
+    },
+    {
+      info: {
+        id: "16865",
+        name: "Pizza Hut",
+        cloudinaryImageId:
+          "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/ad775229-6f24-4858-8234-b974d501c013_16865.JPG",
+        locality: "Connaught Place",
+        costForTwo: "₹350 for two",
+        cuisines: ["Pizzas"],
+        avgRating: 4.3,
+        avgRatingString: "4.4",
+        deliveryTime: 26,
+        rating: "4.2",
+      },
+    },
+  ];
   return (
     <div className="main-body-container">
       <div className="body-container">
@@ -19,17 +88,25 @@ const Body = () => {
           />
         </div>
       </div>
+      <div className="filter" style={{ margin: "10px" }}>
+        <button
+          className="filter-btn"
+          style={{ padding: "10px" }}
+          onClick={() => {
+            const result = restaurantList.filter(
+              (resObject) => resObject.info.avgRating > 4.3
+            );
+            console.log(result);
+            setRestaurantList(result);
+          }}
+        >
+          Top Rated Restaurants
+        </button>
+      </div>
       <div className="Cards">
-        <Card resData={resList[0]} />
-        <Card resData={resList[1]} />
-        <Card resData={resList[2]} />
-        <Card resData={resList[3]} />
-        <Card resData={resList[4]} />
-        <Card resData={resList[5]} />
-        <Card resData={resList[6]} />
-        <Card resData={resList[7]} />
-        <Card resData={resList[7]} />
-        <Card resData={resList[5]} />
+        {restaurantList.map((restaurant, index) => (
+          <Card resList={restaurant} key={restaurant.info.id} />
+        ))}
       </div>
     </div>
   );

@@ -2,10 +2,17 @@ import { CDN_LINK } from "../utils/constant";
 
 // Card Component -- Started
 const Card = (props) => {
-  const { resData } = props;
-  const { id, name, cloudinaryImageId, locality, costForTwo, cuisines } =
-    resData?.info;
-
+  const { resList } = props;
+  const {
+    id,
+    name,
+    cloudinaryImageId,
+    locality,
+    costForTwo,
+    cuisines,
+    avgRating,
+  } = resList?.info;
+  console.log(resList.info.id);
   return (
     <div className="card-container">
       <img src={CDN_LINK + cloudinaryImageId} alt="logo" />
@@ -17,6 +24,7 @@ const Card = (props) => {
         <p>
           <b>{costForTwo}</b>
         </p>
+        <p>{avgRating} ⭐ Rating</p>
       </div>
       <div className="offer">
         <a href="#">Grab Offer UpTo 50%</a>
