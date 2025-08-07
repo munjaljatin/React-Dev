@@ -1,5 +1,6 @@
 import Card from "./Card";
-import { useState } from "react";
+import Shimmer from "./Shimmer";
+import { useState, useEffect } from "react";
 import resList from "../utils/mockData";
 import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
 
@@ -72,6 +73,29 @@ const Body = () => {
       },
     },
   ];
+  // useEffect(callback, dependency array)
+  useEffect(() => {
+    fetchSwiggyData();
+    // fetchZomatoData();
+  }, []);
+
+  const fetchSwiggyData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    console.log(json);
+  };
+
+  const fetchZomatoData = async () => {
+    const data = await fetch("https://www.zomato.com/webroutes/auth/init");
+
+    const json = await data.json();
+    // const newJson = json.data.cards[0].card.card;
+    console.log(json);
+  };
+
   return (
     <div className="main-body-container">
       <div className="body-container">
@@ -101,6 +125,9 @@ const Body = () => {
           }}
         >
           Top Rated Restaurants
+        </button>
+        <button className="use-button" style={{ marginLeft: "80px" }}>
+          Use Effect Button
         </button>
       </div>
       <div className="Cards">

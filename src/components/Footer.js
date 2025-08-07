@@ -50,30 +50,35 @@ const Footer = () => {
               <img
                 src="https://media-assets.swiggy.com/portal/testing/seo-home/Linkedin.svg"
                 alt=""
+                className="links"
               />
             </a>
             <a href="#">
               <img
                 src="https://media-assets.swiggy.com/portal/testing/seo-home/icon-instagram.svg"
                 alt=""
+                className="links"
               />
             </a>
             <a href="#">
               <img
                 src="https://media-assets.swiggy.com/portal/testing/seo-home/icon-facebook.svg"
                 alt=""
+                className="links"
               />
             </a>
             <a href="#">
               <img
                 src="https://media-assets.swiggy.com/portal/testing/seo-home/icon-pinterest.svg"
                 alt=""
+                className="links"
               />
             </a>
             <a href="#">
               <img
                 src="https://media-assets.swiggy.com/portal/testing/seo-home/Twitter.svg"
                 alt=""
+                className="links"
               />
             </a>
           </div>
