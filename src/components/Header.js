@@ -1,11 +1,16 @@
 import { LOGO_LINK } from "../utils/constant";
+import { NEW_LOGO_LINK } from "../utils/constant";
+import { useState } from "react";
 
 // Header Component -- Started
 const Header = () => {
+  // creating a local state variable for rendering sign-in and sign-out
+  const [btnName, setBtnName] = useState("Sign In");
+
   return (
     <div className="header">
       <div className="logo-container">
-        <img src={LOGO_LINK} alt="food" style={{ width: "90px" }} />
+        <img src={NEW_LOGO_LINK} alt="food" style={{ width: "50px" }} />
       </div>
       <div className="nav-items">
         <ul className="links">
@@ -19,7 +24,18 @@ const Header = () => {
             <li>About</li>
           </a>
           <button className="get-the-app">Get the App</button>
-          <button className="sign-in">Sign in</button>
+          <button
+            className="sign-in"
+            onClick={() => {
+              if (btnName === "Sign In") {
+                setBtnName("Sign Out");
+              } else if (btnName === "Sign Out") {
+                setBtnName("Sign In");
+              }
+            }}
+          >
+            {btnName}
+          </button>
         </ul>
       </div>
     </div>

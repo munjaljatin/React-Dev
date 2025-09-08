@@ -19,7 +19,7 @@ const Card = (props) => {
       <div className="text-container">
         {/* <h3>{id}</h3> */}
         <p>{name}</p>
-        <p className="cuisine">{cuisines}</p>
+        <p className="cuisine">{cuisines.join(", ")}</p>
         <p>{locality}</p>
         <p>
           <b>{costForTwo}</b>
