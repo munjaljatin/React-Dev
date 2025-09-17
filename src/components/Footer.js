@@ -1,13 +1,10 @@
+import { NEW_LOGO_LINK } from "../utils/constant";
 // Footer Component -- Started
 const Footer = () => {
   return (
     <div className="footer-container">
       <div className="foo-logo">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUGz0WshFYnlwlqP_fs3ErIppUvpuaYfTrZQ&s"
-          alt=""
-        />
-        <p>Copyright</p>
+        <img src={NEW_LOGO_LINK} alt="" width={50} />
       </div>
       <div>
         <h4 className="heading4">Company</h4>
