@@ -6,14 +6,15 @@ import { useState, useEffect } from "react";
 import resList from "../utils/mockData";
 import { FaSearch } from "react-icons/fa";
 import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
+import { resList } from "../utils/mockData";
 
 // Body Component -- Started
 const Body = () => {
   // Whenever there is a change in react state variable, react triggers a reconciliation cycle(re-render the whole component)
   // React is re-rendering the whole body component but it is only updating the input box value inside the DOM, react is very efficient in DOM Manipulation
-  // creating a State variable that maintains the state of out component
-  const [restaurantList, setRestaurantList] = useState([]);
+  // creating a State variable that maintains the state of our component
   const [searchText, setSearchText] = useState("");
+  const [inputText, setInputText] = useState("");
   // const [restaurantList, setRestaurantList] = useState([
   //   {
   //     info: {
@@ -43,6 +44,22 @@ const Body = () => {
   //       avgRatingString: "4.4",
   //       deliveryTime: 26,
   //       rating: "4.2",
+  //     },
+  //   },
+  //   {
+  //     info: {
+  //       id: "350219",
+  //       name: "NIC Ice Creams",
+  //       cloudinaryImageId:
+  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/8/7792e3a8-9bb1-4e5d-a750-f1e049325531_350219.JPG",
+  //       locality: "Sector-6",
+  //       areaName: "Panchkula",
+  //       costForTwo: "₹120 for two",
+  //       cuisines: ["Ice Cream", "Desserts"],
+  //       avgRating: 4.8,
+  //       veg: true,
+  //       parentId: "6249",
+  //       avgRatingString: "4.8",
   //     },
   //   },
   // ]);
@@ -82,19 +99,23 @@ const Body = () => {
   // useEffect(callback, dependency array)
   useEffect(() => {
     fetchSwiggyData();
+    console.log("Use effect called");
   }, []);
 
-  const fetchSwiggyData = async () => {
+  const [restaurantList, setRestaurantList] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  async function fetchSwiggyData() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5246091&lng=73.8786239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-
     const json = await data.json();
+    console.log(json);
     var list =
       json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
     setRestaurantList(list);
     console.log(list);
-  };
+  }
 
   // conditional Rendering => Rendering the component according to the condition
   // if (restaurantList.length === 0) {
@@ -106,20 +127,6 @@ const Body = () => {
   ) : (
     <div className="main-body-container">
       <Background />
-      {/* <div className="body-container">
-        <img
-          src="https://images.unsplash.com/photo-1543992321-cefacfc2322e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHJlc3RhdXJhbnQlMjBmb29kfGVufDB8fDB8fHww"
-          alt=""
-        />
-        <div className="centered">
-          <h1 className="bd-h1">Order Delivery Near You!</h1>
-          <input
-            type="text"
-            className="delivery"
-            placeholder="Enter delivery address"
-          />
-        </div>
-      </div> */}
       <div className="filter" style={{ margin: "10px" }}>
         <button
           className="filter-btn"
@@ -158,6 +165,28 @@ const Body = () => {
           }}
         >
           <FaSearch size={18} color="lightgrey" />
+        </button>
+      </div>
+      <div className="main-search">
+        <input
+          type="text"
+          name="search"
+          placeholder="search"
+          value={inputText}
+          onChange={(event) => {
+            setInputText(event.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            console.log(inputText);
+            const filteredList = restaurantList.filter((restaurant) =>
+              restaurant.info.name.includes(searchText)
+            );
+            setRestaurantList(filteredList);
+          }}
+        >
+          Search
         </button>
       </div>
       <div className="Cards">

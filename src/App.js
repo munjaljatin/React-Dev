@@ -7,34 +7,57 @@ import Footer from "./components/Footer";
 import Example from "./components/Example";
 import Section from "./components/Section";
 import Box from "./components/Box";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
+import SignUp from "./pages/SignUp";
 import Error from "./pages/Error";
 import "../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/styles.css";
+import Background from "./components/Background";
+import Menu from "./pages/Menu";
 
 const App = () => {
   return (
     <React.Fragment>
       <Header />
-      <Body />
-      <ImageSection />
-      <Section />
-      <Box />
+      <Outlet />
       <Footer />
     </React.Fragment>
   );
 };
 
-// Routing Configuration
+// Routing Configuration and creating the children routes
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: [<Body key={1} />, <Box key={2} />],
+        errorElement: <Error />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/restaurant/:resID",
+        element: <Menu />,
+      },
+    ],
     errorElement: <Error />,
-  },
-  {
-    path: "/about",
-    element: <About />,
   },
 ]);
 

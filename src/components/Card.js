@@ -12,7 +12,7 @@ const Card = (props) => {
     cuisines,
     avgRating,
   } = resList?.info;
-  console.log(resList.info.id);
+  // console.log(resList.info.id);
   return (
     <div className="card-container">
       <img src={CDN_LINK + cloudinaryImageId} alt="logo" />

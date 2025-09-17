@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { LOGO_LINK } from "../utils/constant";
 import { NEW_LOGO_LINK } from "../utils/constant";
 import { useState } from "react";
@@ -5,37 +6,35 @@ import { useState } from "react";
 // Header Component -- Started
 const Header = () => {
   // creating a local state variable for rendering sign-in and sign-out
+  // state variable
   const [btnName, setBtnName] = useState("Sign In");
-
+  const handleClick = () => {
+    btnName === "Sign In" ? setBtnName("Sign Out") : setBtnName("Sign In");
+  };
   return (
     <div className="header">
       <div className="logo-container">
-        <img src={NEW_LOGO_LINK} alt="food" style={{ width: "50px" }} />
+        <Link to="/">
+          <img src={NEW_LOGO_LINK} alt="food" style={{ width: "50px" }} />
+        </Link>
       </div>
       <div className="nav-items">
         <ul className="links">
-          <a href="#">
-            <li>Home</li>
-          </a>
-          <a href="#">
-            <li>Food</li>
-          </a>
-          <a href="#">
-            <li>About</li>
-          </a>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <button className="get-the-app">Get the App</button>
-          <button
-            className="sign-in"
-            onClick={() => {
-              if (btnName === "Sign In") {
-                setBtnName("Sign Out");
-              } else if (btnName === "Sign Out") {
-                setBtnName("Sign In");
-              }
-            }}
-          >
-            {btnName}
-          </button>
+          <Link to="sign-up">
+            <button className="sign-in" onClick={handleClick}>
+              {btnName}
+            </button>
+          </Link>
         </ul>
       </div>
     </div>
