@@ -4,8 +4,6 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import ImageSection from "./components/ImageSection";
 import Footer from "./components/Footer";
-import Example from "./components/Example";
-import Section from "./components/Section";
 import Box from "./components/Box";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import About from "./pages/About";

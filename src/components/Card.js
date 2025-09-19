@@ -1,5 +1,4 @@
 import { CDN_LINK } from "../utils/constant";
-import { Link } from "react-router";
 
 // Card Component -- Started
 const Card = (props) => {
