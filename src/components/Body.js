@@ -48,7 +48,6 @@ const Body = () => {
       },
     },
   ];
-  // useEffect(callback, dependency array)
   useEffect(() => {
     fetchSwiggyData();
     console.log("Use effect called");
@@ -125,7 +124,5 @@ const Body = () => {
     </div>
   );
 };
-// Body Component --Ended
 
-// exporting the Body component to the outside world!
 export default Body;
