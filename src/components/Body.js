@@ -7,64 +7,14 @@ import resList from "../utils/mockData";
 import { FaSearch } from "react-icons/fa";
 import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
 import { resList } from "../utils/mockData";
-import { RESTRO_API } from "../utils/constant";
 import { Link } from "react-router";
 
-// Body Component -- Started
 const Body = () => {
   // Whenever there is a change in react state variable, react triggers a reconciliation cycle(re-render the whole component)
   // React is re-rendering the whole body component but it is only updating the input box value inside the DOM, react is very efficient in DOM Manipulation
   // creating a State variable that maintains the state of our component
   const [searchText, setSearchText] = useState("");
   const [inputText, setInputText] = useState("");
-  // const [restaurantList, setRestaurantList] = useState([
-  //   {
-  //     info: {
-  //       id: "8614",
-  //       name: "Burger King",
-  //       cloudinaryImageId:
-  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/18/ee1fdf16-ea5f-4a44-9e58-7b3a9dee2618_8614.jpg",
-  //       locality: "Connaught Place",
-  //       costForTwo: "₹350 for two",
-  //       cuisines: ["Burgers", "American"],
-  //       avgRating: 4.4,
-  //       avgRatingString: "4.4",
-  //       deliveryTime: 26,
-  //       rating: "4.2",
-  //     },
-  //   },
-  //   {
-  //     info: {
-  //       id: "16865",
-  //       name: "Pizza Hut",
-  //       cloudinaryImageId:
-  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/ad775229-6f24-4858-8234-b974d501c013_16865.JPG",
-  //       locality: "Connaught Place",
-  //       costForTwo: "₹350 for two",
-  //       cuisines: ["Pizzas"],
-  //       avgRating: 4.3,
-  //       avgRatingString: "4.4",
-  //       deliveryTime: 26,
-  //       rating: "4.2",
-  //     },
-  //   },
-  //   {
-  //     info: {
-  //       id: "350219",
-  //       name: "NIC Ice Creams",
-  //       cloudinaryImageId:
-  //         "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/8/7792e3a8-9bb1-4e5d-a750-f1e049325531_350219.JPG",
-  //       locality: "Sector-6",
-  //       areaName: "Panchkula",
-  //       costForTwo: "₹120 for two",
-  //       cuisines: ["Ice Cream", "Desserts"],
-  //       avgRating: 4.8,
-  //       veg: true,
-  //       parentId: "6249",
-  //       avgRatingString: "4.8",
-  //     },
-  //   },
-  // ]);
   // Normal JS Variable
   let restaurantListJS = [
     {
@@ -143,10 +93,6 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-
-      {/* <div className="filter-btn-container">
-        <Filter data={restaurantList} />
-      </div> */}
       <div className="search-container">
         <input
           type="text"
