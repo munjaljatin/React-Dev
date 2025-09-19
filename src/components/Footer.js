@@ -1,5 +1,5 @@
 import { NEW_LOGO_LINK } from "../utils/constant";
-// Footer Component -- Started
+
 const Footer = () => {
   return (
     <div className="footer-container">

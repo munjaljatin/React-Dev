@@ -7,6 +7,8 @@ import resList from "../utils/mockData";
 import { FaSearch } from "react-icons/fa";
 import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
 import { resList } from "../utils/mockData";
+import { RESTRO_API } from "../utils/constant";
+import { Link } from "react-router";
 
 // Body Component -- Started
 const Body = () => {
@@ -107,7 +109,7 @@ const Body = () => {
 
   async function fetchSwiggyData() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5246091&lng=73.8786239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.461421&lng=78.3346205&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json);
@@ -140,9 +142,6 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        <button className="use-button" style={{ marginLeft: "80px" }}>
-          Use Effect Button
-        </button>
       </div>
 
       {/* <div className="filter-btn-container">
@@ -167,31 +166,14 @@ const Body = () => {
           <FaSearch size={18} color="lightgrey" />
         </button>
       </div>
-      <div className="main-search">
-        <input
-          type="text"
-          name="search"
-          placeholder="search"
-          value={inputText}
-          onChange={(event) => {
-            setInputText(event.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            console.log(inputText);
-            const filteredList = restaurantList.filter((restaurant) =>
-              restaurant.info.name.includes(searchText)
-            );
-            setRestaurantList(filteredList);
-          }}
-        >
-          Search
-        </button>
-      </div>
       <div className="Cards">
         {restaurantList.map((restaurant, index) => (
-          <Card resList={restaurant} key={restaurant.info.id} />
+          <Link
+            to={"/restaurant/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <Card resList={restaurant} key={restaurant.info.id} />
+          </Link>
         ))}
       </div>
     </div>

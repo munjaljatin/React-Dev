@@ -1,3 +1,4 @@
+import UserClass from "../components/UserClass";
 const About = () => {
   return (
     <div className="about-page">
@@ -8,6 +9,7 @@ const About = () => {
         Obcaecati aliquid iste unde atque cupiditate, sunt, velit accusamus
         officia, sit alias blanditiis!
       </p>
+      <UserClass name={"Jatin"} location={"Chandigarh"} />
     </div>
   );
 };

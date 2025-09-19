@@ -13,7 +13,6 @@ import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 import Error from "./pages/Error";
 import "../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/styles.css";
-import Background from "./components/Background";
 import Menu from "./pages/Menu";
 
 const App = () => {
@@ -34,7 +33,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: [<Body key={1} />, <Box key={2} />],
+        element: [<Body key={1} />, <ImageSection key={2} />, <Box key={3} />],
         errorElement: <Error />,
       },
       {
