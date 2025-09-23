@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import resObject from "../../Episode 04 - Talk is Cheap, Show Me The Code!/Coding/data";
 import { resList } from "../utils/mockData";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/Hooks/useOnlineStatus";
 
 const Body = () => {
   // Whenever there is a change in react state variable, react triggers a reconciliation cycle(re-render the whole component)
@@ -15,39 +16,6 @@ const Body = () => {
   // creating a State variable that maintains the state of our component
   const [searchText, setSearchText] = useState("");
   const [inputText, setInputText] = useState("");
-  // Normal JS Variable
-  let restaurantListJS = [
-    {
-      info: {
-        id: "8614",
-        name: "Burger King",
-        cloudinaryImageId:
-          "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/18/ee1fdf16-ea5f-4a44-9e58-7b3a9dee2618_8614.jpg",
-        locality: "Connaught Place",
-        costForTwo: "₹350 for two",
-        cuisines: ["Burgers", "American"],
-        avgRating: 4.4,
-        avgRatingString: "4.4",
-        deliveryTime: 26,
-        rating: "4.2",
-      },
-    },
-    {
-      info: {
-        id: "16865",
-        name: "Pizza Hut",
-        cloudinaryImageId:
-          "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/ad775229-6f24-4858-8234-b974d501c013_16865.JPG",
-        locality: "Connaught Place",
-        costForTwo: "₹350 for two",
-        cuisines: ["Pizzas"],
-        avgRating: 4.3,
-        avgRatingString: "4.4",
-        deliveryTime: 26,
-        rating: "4.2",
-      },
-    },
-  ];
   useEffect(() => {
     fetchSwiggyData();
     console.log("Use effect called");
@@ -73,6 +41,14 @@ const Body = () => {
   //   return <Shimmer />;
   // }
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks Like You're Offline. Please, Check Your Internet Connection.
+      </h1>
+    );
+  }
   return restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
